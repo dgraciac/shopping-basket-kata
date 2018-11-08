@@ -1,5 +1,6 @@
 package com.codurance.shopping_basket_kata.test;
 
+import com.codurance.shopping_basket_kata.test.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 

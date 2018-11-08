@@ -10,4 +10,9 @@ public class InMemoryUserRepository implements UserRepository {
     public void update(User user) {
         throw new UnsupportedOperationException("Not implemented");
     }
+
+    @Override
+    public boolean exists(UserID userID) {
+        return false;
+    }
 }

@@ -4,4 +4,6 @@ public interface UserRepository {
     User retrieve(UserID userID);
 
     void update(User user);
+
+    boolean exists(UserID userID);
 }
