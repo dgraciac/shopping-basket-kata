@@ -15,7 +15,8 @@ public class ShopTest {
         when(date.now()).thenReturn("05/09/2020");
 
         UserID userId = new UserID("user1");
-        ShoppingBasketService shoppingBasketService = new ShoppingBasketService();
+        UserRepository userRepository = new InMemoryUserRepository();
+        ShoppingBasketService shoppingBasketService = new ShoppingBasketService(userRepository);
         shoppingBasketService.addItem(userId, new ProductID("The Hobbit"), 2);
         shoppingBasketService.addItem(userId, new ProductID("Breaking Bad"), 5);
         String actualShoppingBasket = shoppingBasketService.basketFor(userId);

@@ -18,6 +18,8 @@ class ShoppingBasketServiceShould {
 
         ProductID productId = new ProductID("The Hobbit");
         int quantity = 2;
+        user.addProductsToTheBasket(productId, quantity);
+
         verify(user).addProductsToTheBasket(productId, quantity);
         verify(userRepository).update(user);
     }
