@@ -28,5 +28,4 @@ class InMemoryUserRepositoryShould {
 
         assertThat(retrievedUser).isEqualTo(createdUser);
     }
-
 }
