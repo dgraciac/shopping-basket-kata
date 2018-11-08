@@ -19,6 +19,8 @@ class InMemoryUserRepositoryShould {
     @Test
     void
     create_non_existing_user() {
+        assertThat(inMemoryUserRepository.exists(userID)).isFalse();
+
         inMemoryUserRepository.retrieve(userID);
 
         assertThat(inMemoryUserRepository.exists(userID)).isTrue();
