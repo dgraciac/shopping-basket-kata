@@ -23,6 +23,6 @@ public class InMemoryUserRepository implements UserRepository {
 
     @Override
     public boolean exists(UserID userID) {
-        return true;
+        return userDatabase.containsKey(userID);
     }
 }
