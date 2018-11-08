@@ -1,17 +1,24 @@
 package com.codurance.shopping_basket_kata.test;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class InMemoryUserRepositoryShould {
 
+    private InMemoryUserRepository inMemoryUserRepository;
+    private UserID userID;
+
+    @BeforeEach
+    void setUp() {
+        inMemoryUserRepository = new InMemoryUserRepository();
+        userID = new UserID("user1");
+    }
+
     @Test
     void
     create_non_existing_user() {
-        InMemoryUserRepository inMemoryUserRepository = new InMemoryUserRepository();
-
-        UserID userID = new UserID("USER1");
         inMemoryUserRepository.retrieve(userID);
 
         assertThat(inMemoryUserRepository.exists(userID)).isTrue();
@@ -19,9 +26,6 @@ class InMemoryUserRepositoryShould {
 
     @Test void
     retrieve_existing_user() {
-        InMemoryUserRepository inMemoryUserRepository = new InMemoryUserRepository();
-        String user1IDPrimitive = "user1";
-        UserID userID = new UserID(user1IDPrimitive);
         User createdUser = inMemoryUserRepository.retrieve(userID);
 
         User retrievedUser = inMemoryUserRepository.retrieve(userID);
