@@ -1,9 +1,21 @@
 package com.codurance.shopping_basket_kata.test;
 
+import java.util.Hashtable;
+import java.util.Map;
+
 public class InMemoryUserRepository implements UserRepository {
+
+    private Map<UserID, User> userDatabase;
+
+    public InMemoryUserRepository() {
+        userDatabase = new Hashtable<>();
+    }
+
     @Override
     public User retrieve(UserID userID) {
-        throw new UnsupportedOperationException("Not implemented");
+        User user = new User();
+        userDatabase.put(userID,user);
+        return user;
     }
 
     @Override
@@ -13,6 +25,6 @@ public class InMemoryUserRepository implements UserRepository {
 
     @Override
     public boolean exists(UserID userID) {
-        return false;
+        return true;
     }
 }
