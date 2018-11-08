@@ -13,12 +13,7 @@ public class InMemoryUserRepository implements UserRepository {
 
     @Override
     public User retrieve(UserID userID) {
-        User maybeUser = userDatabase.get(userID);
-        if(maybeUser != null) return maybeUser;
-
-        User user = new User();
-        userDatabase.put(userID,user);
-        return user;
+        return userDatabase.computeIfAbsent(userID, userID1 -> new User());
     }
 
     @Override
